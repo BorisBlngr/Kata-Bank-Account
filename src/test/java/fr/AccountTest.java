@@ -2,6 +2,8 @@ package fr;
 
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AccountTest {
@@ -34,5 +36,21 @@ public class AccountTest {
 
         Account accountExpected = new Account(Money.of(0));
         assertThat(myAccount).isEqualTo(accountExpected);
+    }
+
+    @Test
+    public void an_operation_is_saved_in_my_account_historic() {
+        Account myAccount = new Account(Money.of(45));
+
+        myAccount.withdrawal(Money.of(20));
+        AccountOperation myOperation = myAccount.getHistoric().get(0);
+
+        AccountOperation operationExpected = new AccountOperation(
+                OPERATION.WITHDRAWAL,
+                LocalDateTime.now(),
+                Money.of(20),
+                Money.of(25)
+        );
+        assertThat(myOperation).isEqualToIgnoringGivenFields(operationExpected, "dateTime");
     }
 }
