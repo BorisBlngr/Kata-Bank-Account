@@ -1,15 +1,13 @@
 public class Account {
-    private int money;
+    private Money money;
 
-    Account(int money) {
+    Account(Money money) {
         this.money = money;
     }
 
-    void deposit(int money) {
-        if (money<0){
-            throw new IllegalArgumentException("money can not be negative");
-        }
-        this.money += money;
+    void deposit(Money money) {
+
+        this.money = money.add(this.money);
     }
 
     @Override
@@ -24,14 +22,14 @@ public class Account {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Account that = (Account) o;
+        Account account = (Account) o;
 
-        return money == that.money;
+        return money != null ? money.equals(account.money) : account.money == null;
 
     }
 
     @Override
     public int hashCode() {
-        return money;
+        return money != null ? money.hashCode() : 0;
     }
 }
