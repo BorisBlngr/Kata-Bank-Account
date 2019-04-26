@@ -3,6 +3,7 @@ package fr;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static fr.OPERATION.DEPOSIT;
 import static fr.OPERATION.WITHDRAWAL;
@@ -17,16 +18,20 @@ public class Account {
 
     void deposit(Money money) {
         this.money = money.add(this.money);
-        historic.add(new AccountOperation(DEPOSIT, LocalDateTime.now(), money, this.money));
+        newHistoric(DEPOSIT, money);
     }
 
     void withdrawal(Money money) {
         this.money = this.money.minus(money);
-        historic.add(new AccountOperation(WITHDRAWAL, LocalDateTime.now(), money, this.money));
+        newHistoric(WITHDRAWAL, money);
     }
 
     void withdrawalFull() {
-        this.money = Money.of(0);
+        withdrawal(this.money);
+    }
+
+    private void newHistoric(OPERATION operation, Money amount) {
+        historic.add(new AccountOperation(operation, LocalDateTime.now(), amount, this.money));
     }
 
     List<AccountOperation> getHistoric() {
@@ -47,7 +52,7 @@ public class Account {
 
         Account account = (Account) o;
 
-        return money != null ? money.equals(account.money) : account.money == null;
+        return Objects.equals(money, account.money);
 
     }
 
