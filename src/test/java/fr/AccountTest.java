@@ -43,7 +43,7 @@ public class AccountTest {
         Account myAccount = new Account(Money.of(45));
 
         myAccount.withdrawal(Money.of(20));
-        AccountOperation myOperation = myAccount.getHistoric().get(0);
+        AccountOperation myOperation = myAccount.getAccountOperations().get(0);
 
         AccountOperation operationExpected = new AccountOperation(
                 OPERATION.WITHDRAWAL,
@@ -52,5 +52,24 @@ public class AccountTest {
                 Money.of(25)
         );
         assertThat(myOperation).isEqualToIgnoringGivenFields(operationExpected, "dateTime");
+    }
+
+    @Test
+    public void my_account_history_can_be_printed() {
+        Account myAccount = new Account(Money.of(40));
+
+        myAccount.withdrawal(Money.of(20));
+        myAccount.withdrawal(Money.of(10));
+        myAccount.deposit(Money.of(100));
+
+        String history = myAccount.printHistory();
+
+        String historyExpected = "-20 \n" +
+                "-10 \n" +
+                "+100 \n" +
+                "- - - - - - - \n" +
+                "110";
+
+        assertThat(history).isEqualTo(historyExpected);
     }
 }

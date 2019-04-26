@@ -17,6 +17,10 @@ class AccountOperation {
         this.balance = balance;
     }
 
+    String printed() {
+        return operation.sign + amount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

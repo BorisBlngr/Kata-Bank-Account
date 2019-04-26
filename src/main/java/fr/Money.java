@@ -40,8 +40,6 @@ class Money {
 
     @Override
     public String toString() {
-        return "fr.Money{" +
-                "value=" + value +
-                '}';
+        return String.valueOf(value);
     }
 }

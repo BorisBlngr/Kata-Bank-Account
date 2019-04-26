@@ -10,7 +10,7 @@ import static fr.OPERATION.WITHDRAWAL;
 
 public class Account {
     private Money money;
-    private List<AccountOperation> historic = new ArrayList<>();
+    private List<AccountOperation> accountOperations = new ArrayList<>();
 
     Account(Money money) {
         this.money = money;
@@ -31,11 +31,19 @@ public class Account {
     }
 
     private void newHistoric(OPERATION operation, Money amount) {
-        historic.add(new AccountOperation(operation, LocalDateTime.now(), amount, this.money));
+        accountOperations.add(new AccountOperation(operation, LocalDateTime.now(), amount, this.money));
     }
 
-    List<AccountOperation> getHistoric() {
-        return historic;
+    List<AccountOperation> getAccountOperations() {
+        return accountOperations;
+    }
+
+    String printHistory() {
+        StringBuilder history = new StringBuilder();
+        accountOperations.forEach(accountOperation -> history.append(accountOperation.printed()).append(" \n"));
+        history.append("- - - - - - - \n");
+        history.append(money);
+        return history.toString();
     }
 
     @Override
