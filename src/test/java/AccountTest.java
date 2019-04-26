@@ -28,4 +28,15 @@ public class AccountTest {
         Assertions.assertThat(myAccount).isEqualTo(expected);
     }
 
+    @Test
+    public void i_can_perform_a_full_withdrawal_of_my_account() {
+        Account myAccount = new Account(Money.of(45));
+
+        myAccount.withdrawalFull();
+
+        Account accountExpected = new Account(Money.of(0));
+
+        Assertions.assertThat(myAccount).isEqualTo(accountExpected);
+
+    }
 }

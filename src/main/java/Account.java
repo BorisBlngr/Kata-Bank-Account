@@ -13,6 +13,10 @@ public class Account {
         this.money = this.money.minus(money);
     }
 
+    void withdrawalFull() {
+        this.money = Money.of(0);
+    }
+
     @Override
     public String toString() {
         return "Account{" +
