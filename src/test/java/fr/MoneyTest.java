@@ -1,3 +1,5 @@
+package fr;
+
 import org.junit.Test;
 
 public class MoneyTest {

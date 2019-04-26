@@ -1,3 +1,5 @@
+package fr;
+
 public class Account {
     private Money money;
 
@@ -19,7 +21,7 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" +
+        return "fr.Account{" +
                 "money=" + money +
                 '}';
     }

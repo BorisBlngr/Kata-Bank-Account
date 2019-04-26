@@ -1,3 +1,5 @@
+package fr;
+
 class Money {
     private final int value;
 
@@ -38,7 +40,7 @@ class Money {
 
     @Override
     public String toString() {
-        return "Money{" +
+        return "fr.Money{" +
                 "value=" + value +
                 '}';
     }
