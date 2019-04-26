@@ -6,6 +6,9 @@ public class Account {
     }
 
     void deposit(int money) {
+        if (money<0){
+            throw new IllegalArgumentException("money can not be negative");
+        }
         this.money += money;
     }
 
