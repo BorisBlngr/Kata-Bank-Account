@@ -6,8 +6,11 @@ public class Account {
     }
 
     void deposit(Money money) {
-
         this.money = money.add(this.money);
+    }
+
+    void withdrawal(Money money) {
+        this.money = this.money.minus(money);
     }
 
     @Override

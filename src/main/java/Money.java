@@ -16,6 +16,10 @@ class Money {
         return Money.of(this.value + money.value);
     }
 
+    Money minus(Money money) {
+        return Money.of(this.value - money.value);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -30,5 +34,12 @@ class Money {
     @Override
     public int hashCode() {
         return value;
+    }
+
+    @Override
+    public String toString() {
+        return "Money{" +
+                "value=" + value +
+                '}';
     }
 }

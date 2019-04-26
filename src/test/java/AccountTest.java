@@ -17,4 +17,14 @@ public class AccountTest {
     public void money_can_not_be_negative() {
         Money.of(-10);
     }
+
+    @Test
+    public void i_can_retrieve_money_on_my_account() {
+        Account myAccount = new Account(Money.of(60));
+
+        myAccount.withdrawal(Money.of(20));
+
+        Account expected = new Account(Money.of(40));
+        Assertions.assertThat(myAccount).isEqualTo(expected);
+    }
 }
