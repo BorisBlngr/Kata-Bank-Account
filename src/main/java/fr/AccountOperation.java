@@ -5,14 +5,14 @@ import java.util.Objects;
 
 class AccountOperation {
 
-    private OPERATION operation;
-    private LocalDateTime datetime;
-    private Money amount;
-    private Money balance;
+    private final OPERATION operation;
+    private final LocalDateTime dateTime;
+    private final Money amount;
+    private final Money balance;
 
-    AccountOperation(OPERATION operation, LocalDateTime datetime, Money amount, Money balance) {
+    AccountOperation(OPERATION operation, LocalDateTime dateTime, Money amount, Money balance) {
         this.operation = operation;
-        this.datetime = datetime;
+        this.dateTime = dateTime;
         this.amount = amount;
         this.balance = balance;
     }
@@ -25,7 +25,7 @@ class AccountOperation {
         AccountOperation that = (AccountOperation) o;
 
         if (operation != that.operation) return false;
-        if (!Objects.equals(datetime, that.datetime)) return false;
+        if (!Objects.equals(dateTime, that.dateTime)) return false;
         if (!Objects.equals(amount, that.amount)) return false;
         return Objects.equals(balance, that.balance);
 
@@ -34,7 +34,7 @@ class AccountOperation {
     @Override
     public int hashCode() {
         int result = operation != null ? operation.hashCode() : 0;
-        result = 31 * result + (datetime != null ? datetime.hashCode() : 0);
+        result = 31 * result + (dateTime != null ? dateTime.hashCode() : 0);
         result = 31 * result + (amount != null ? amount.hashCode() : 0);
         result = 31 * result + (balance != null ? balance.hashCode() : 0);
         return result;
@@ -44,7 +44,7 @@ class AccountOperation {
     public String toString() {
         return "AccountOperation{" +
                 "operation=" + operation +
-                ", datetime=" + datetime +
+                ", dateTime=" + dateTime +
                 ", amount=" + amount +
                 ", balance=" + balance +
                 '}';

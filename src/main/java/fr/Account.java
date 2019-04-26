@@ -17,7 +17,7 @@ public class Account {
     }
 
     void deposit(Money money) {
-        this.money = money.add(this.money);
+        this.money = this.money.add(money);
         newHistoric(DEPOSIT, money);
     }
 
