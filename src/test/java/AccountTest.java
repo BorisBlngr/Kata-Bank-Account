@@ -27,4 +27,5 @@ public class AccountTest {
         Account expected = new Account(Money.of(40));
         Assertions.assertThat(myAccount).isEqualTo(expected);
     }
+
 }

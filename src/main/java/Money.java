@@ -7,7 +7,7 @@ class Money {
 
     static Money of(int value) {
         if (value < 0) {
-            throw new IllegalArgumentException("money can not be negative");
+            throw new IllegalArgumentException("money can not be negative : " + value);
         }
         return new Money(value);
     }
