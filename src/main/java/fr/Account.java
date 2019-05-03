@@ -39,7 +39,7 @@ public class Account {
     }
 
     List<AccountOperation> getAccountOperations() {
-        return accountOperations;
+        return new ArrayList<>(accountOperations);
     }
 
     String printHistory() {
