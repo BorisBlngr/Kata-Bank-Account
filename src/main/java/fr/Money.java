@@ -1,5 +1,7 @@
 package fr;
 
+import java.text.DecimalFormat;
+
 class Money {
     private final int value;
 
@@ -40,6 +42,7 @@ class Money {
 
     @Override
     public String toString() {
-        return String.valueOf(value);
+        DecimalFormat decimalFormat = new DecimalFormat("#.00");
+        return decimalFormat.format(value);
     }
 }

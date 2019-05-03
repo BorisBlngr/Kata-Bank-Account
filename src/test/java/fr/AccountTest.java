@@ -64,11 +64,11 @@ public class AccountTest {
 
         String history = myAccount.printHistory();
 
-        String historyExpected = "-20 \n" +
-                "-10 \n" +
-                "+100 \n" +
+        String historyExpected = "-20,00 \n" +
+                "-10,00 \n" +
+                "+100,00 \n" +
                 "- - - - - - - \n" +
-                "110";
+                "110,00";
 
         assertThat(history).isEqualTo(historyExpected);
     }
