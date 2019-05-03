@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static fr.OPERATION.DEPOSIT;
-import static fr.OPERATION.WITHDRAWAL;
+import static fr.Operation.DEPOSIT;
+import static fr.Operation.WITHDRAWAL;
 
 public class Account {
     private Money money;
@@ -30,7 +30,7 @@ public class Account {
         withdrawal(this.money);
     }
 
-    private void newHistoric(OPERATION operation, Money amount) {
+    private void newHistoric(Operation operation, Money amount) {
         accountOperations.add(new AccountOperation(operation, LocalDateTime.now(), amount, this.money));
     }
 

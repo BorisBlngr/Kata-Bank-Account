@@ -46,7 +46,7 @@ public class AccountTest {
         AccountOperation myOperation = myAccount.getAccountOperations().get(0);
 
         AccountOperation operationExpected = new AccountOperation(
-                OPERATION.WITHDRAWAL,
+                Operation.WITHDRAWAL,
                 LocalDateTime.now(),
                 Money.of(20),
                 Money.of(25)

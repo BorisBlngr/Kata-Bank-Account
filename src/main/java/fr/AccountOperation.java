@@ -5,12 +5,12 @@ import java.util.Objects;
 
 class AccountOperation {
 
-    private final OPERATION operation;
+    private final Operation operation;
     private final LocalDateTime dateTime;
     private final Money amount;
     private final Money balance;
 
-    AccountOperation(OPERATION operation, LocalDateTime dateTime, Money amount, Money balance) {
+    AccountOperation(Operation operation, LocalDateTime dateTime, Money amount, Money balance) {
         this.operation = operation;
         this.dateTime = dateTime;
         this.amount = amount;
