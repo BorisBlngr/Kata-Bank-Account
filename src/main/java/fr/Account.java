@@ -1,12 +1,13 @@
 package fr;
 
+import fr.Operation.Deposit;
+import fr.Operation.Operation;
+import fr.Operation.Withdrawal;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-import static fr.Operation.DEPOSIT;
-import static fr.Operation.WITHDRAWAL;
 
 public class Account {
     private Money money;
@@ -17,17 +18,20 @@ public class Account {
     }
 
     void deposit(Money money) {
-        this.money = this.money.add(money);
-        newHistoric(DEPOSIT, money);
+        performOperationFor(new Deposit(), money);
     }
 
     void withdrawal(Money money) {
-        this.money = this.money.minus(money);
-        newHistoric(WITHDRAWAL, money);
+        performOperationFor(new Withdrawal(), money);
     }
 
     void withdrawalFull() {
         withdrawal(this.money);
+    }
+
+    private void performOperationFor(Operation operation, Money money) {
+        this.money = operation.operate(this.money, money);
+        newHistoric(operation, money);
     }
 
     private void newHistoric(Operation operation, Money amount) {

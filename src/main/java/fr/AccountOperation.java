@@ -1,5 +1,7 @@
 package fr;
 
+import fr.Operation.Operation;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -18,7 +20,7 @@ class AccountOperation {
     }
 
     String print() {
-        return operation.sign + amount.print();
+        return operation.symbol() + amount.print();
     }
 
     @Override
@@ -28,7 +30,7 @@ class AccountOperation {
 
         AccountOperation that = (AccountOperation) o;
 
-        if (operation != that.operation) return false;
+        if (operation.getClass() != that.operation.getClass()) return false;
         if (!Objects.equals(dateTime, that.dateTime)) return false;
         if (!Objects.equals(amount, that.amount)) return false;
         return Objects.equals(balance, that.balance);
@@ -47,7 +49,7 @@ class AccountOperation {
     @Override
     public String toString() {
         return "AccountOperation{" +
-                "operation=" + operation +
+                "operate=" + operation +
                 ", dateTime=" + dateTime +
                 ", amount=" + amount +
                 ", balance=" + balance +

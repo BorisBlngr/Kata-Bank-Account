@@ -1,5 +1,6 @@
 package fr;
 
+import fr.Operation.Withdrawal;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
@@ -46,7 +47,7 @@ public class AccountTest {
         AccountOperation myOperation = myAccount.getAccountOperations().get(0);
 
         AccountOperation operationExpected = new AccountOperation(
-                Operation.WITHDRAWAL,
+                new Withdrawal(),
                 LocalDateTime.now(),
                 Money.of(20),
                 Money.of(25)

@@ -2,7 +2,7 @@ package fr;
 
 import java.text.DecimalFormat;
 
-class Money {
+public class Money {
     private final int value;
     private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.00");
 
@@ -17,11 +17,11 @@ class Money {
         return new Money(value);
     }
 
-    Money add(Money money) {
+    public Money add(Money money) {
         return Money.of(this.value + money.value);
     }
 
-    Money minus(Money money) {
+    public Money minus(Money money) {
         return Money.of(this.value - money.value);
     }
 
