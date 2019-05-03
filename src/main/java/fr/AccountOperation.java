@@ -17,8 +17,8 @@ class AccountOperation {
         this.balance = balance;
     }
 
-    String printed() {
-        return operation.sign + amount;
+    String print() {
+        return operation.sign + amount.print();
     }
 
     @Override

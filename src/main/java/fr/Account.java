@@ -40,9 +40,9 @@ public class Account {
 
     String printHistory() {
         StringBuilder history = new StringBuilder();
-        accountOperations.forEach(accountOperation -> history.append(accountOperation.printed()).append(" \n"));
+        accountOperations.forEach(accountOperation -> history.append(accountOperation.print()).append(" \n"));
         history.append("- - - - - - - \n");
-        history.append(money);
+        history.append(money.print());
         return history.toString();
     }
 

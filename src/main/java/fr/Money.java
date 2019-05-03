@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 
 class Money {
     private final int value;
+    private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.00");
 
     private Money(int value) {
         this.value = value;
@@ -24,6 +25,10 @@ class Money {
         return Money.of(this.value - money.value);
     }
 
+    String print() {
+        return DECIMAL_FORMAT.format(value);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,7 +47,6 @@ class Money {
 
     @Override
     public String toString() {
-        DecimalFormat decimalFormat = new DecimalFormat("#.00");
-        return decimalFormat.format(value);
+        return print();
     }
 }
